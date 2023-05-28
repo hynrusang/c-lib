@@ -1,4 +1,4 @@
-# ![datastruct.h](https://github.com/hynrusang/c-lib/blob/main/datastruct.md) DataStruct
+# ![C icon](https://github.com/hynrusang/c-lib/blob/main/resource/logo.png) DataStruct
 - [이전으로](https://github.com/hynrusang/c-lib/tree/main)
 - [소스코드](https://github.com/hynrusang/c-lib/blob/main/1.0.0/DataStruct.h)
 ---
