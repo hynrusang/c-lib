@@ -154,7 +154,7 @@ void enqueue(Queue* queue, QUEUE data) {
 	queue->last = queue->last->next;
 }
 /*
-get Queue(param)'s first data and remove Queue(param)'s last data
+get Queue(param)'s first data and remove Queue(param)'s first data
 */
 QUEUE dequeue(Queue* queue) {
 	if (queue->first == queue->last) _throw(__data_struct_is_empty);
@@ -175,6 +175,106 @@ get boolean Queue(param) is black
 */
 int is_empty(Queue* queue) {
 	return (queue->first == queue->last);
+}
+
+#endif
+
+#ifdef DEQUE // using Deque
+
+// definition of Deque
+
+#define DequeElement struct dequeElement
+#define Deque struct deque
+/*
+Deque Element(linked)
+*/
+DequeElement{
+	DEQUE data;
+	DequeElement* before;
+	DequeElement* next;
+};
+/*
+controller(Deque Element)
+*/
+Deque{
+	DequeElement* first;
+	DequeElement* last;
+};
+
+// Deque util
+
+/*
+return init controller(Deque Element)
+*/
+Deque* init() {
+	Deque* temp = malloc(sizeof(Deque));
+	if (temp == NULL) _throw(__dynamic_error);
+	temp->first = malloc(sizeof(DequeElement));
+	temp->last = temp->first;
+	return temp;
+}
+/*
+push data(type is Deque) to Deque(param)'s first
+*/
+void push_front(Deque* deque, DEQUE data) {
+	deque->first->before = malloc(sizeof(DequeElement));
+	if (deque->first->before == NULL) _throw(__dynamic_error);
+	else {
+		deque->first->before->next = deque->first;
+		deque->first = deque->first->before;
+		deque->first->data = data;
+	}
+}
+/*
+push data(type is Deque) to Deque(param)'s last
+*/
+void push_back(Deque* deque, DEQUE data) {
+	deque->last->next = malloc(sizeof(DequeElement));
+	if (deque->last->next == NULL) _throw(__dynamic_error);
+	else {
+		deque->last->data = data;
+		deque->last->next->before = deque->last;
+	}
+	deque->last = deque->last->next;
+}
+/*
+get Deque(param)'s first data and remove Deque(param)'s first data
+*/
+DEQUE pop_front(Deque* deque) {
+	if (deque->first == deque->last) _throw(__data_struct_is_empty);
+	DEQUE temp = deque->first->data;
+	deque->first = deque->first->next;
+	free(deque->first->before);
+	return temp;
+}
+/*
+get Deque(param)'s first data and remove Deque(param)'s last data
+*/
+DEQUE pop_back(Deque* deque) {
+	if (deque->first == deque->last) _throw(__data_struct_is_empty);
+	deque->last = deque->last->before;
+	free(deque->last->next);
+	return deque->last->data;
+}
+/*
+get Deque(param)'s first data
+*/
+DEQUE top(Deque* deque) {
+	if (deque->first == deque->last) _throw(__data_struct_is_empty);
+	return deque->last->before->data;
+}
+/*
+get Deque(param)'s last data
+*/
+DEQUE bottom(Deque* deque) {
+	if (deque->first == deque->last) _throw(__data_struct_is_empty);
+	return deque->first->data;
+}
+/*
+get boolean Deque(param) is black
+*/
+int is_empty(Deque* deque) {
+	return (deque->first == deque->last);
 }
 
 #endif
