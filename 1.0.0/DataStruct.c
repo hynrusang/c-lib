@@ -1,46 +1,46 @@
 #define DEQUE int
 #include "DataStruct.h"
 main() {
-	Deque* stack = init();
+	Deque* datas = init();
 	DequeElement* iterator;
 	int data = 1;
-	printf("empty? %d\n\n", is_empty(stack));
+	printf("empty? %d\n\n", is_empty(datas));
 	for (; data < 10; data++) {
 		printf("push_back %d", data);
-		push_back(stack, data);
-		printf("\nstack = ( "); iterator = stack->first; for (; iterator != stack->last; iterator = iterator->next) printf("%d ", iterator->data);
+		push_back(datas, data);
+		printf("\ndatas = ( "); iterator = datas->first; for (; iterator != datas->last; iterator = iterator->next) printf("%d ", iterator->data);
 		printf(")\n");
-		printf("empty? %d\n\n", is_empty(stack));
+		printf("empty? %d\n\n", is_empty(datas));
 	}
 	data--;
-	printf("bottom %d", bottom(stack));
-	printf("\nstack = ( "); iterator = stack->first; for (; iterator != stack->last; iterator = iterator->next) printf("%d ", iterator->data);
+	printf("bottom %d", bottom(datas));
+	printf("\ndatas = ( "); iterator = datas->first; for (; iterator != datas->last; iterator = iterator->next) printf("%d ", iterator->data);
 	printf(")\n");
-	printf("empty? %d\n\n", is_empty(stack));
+	printf("empty? %d\n\n", is_empty(datas));
 	for (; 0 < data; data--) {
-		printf("pop_front %d", pop_front(stack));
-		printf("\nstack = ( "); iterator = stack->first; for (; iterator != stack->last; iterator = iterator->next) printf("%d ", iterator->data);
+		printf("pop_front %d", pop_front(datas));
+		printf("\ndatas = ( "); iterator = datas->first; for (; iterator != datas->last; iterator = iterator->next) printf("%d ", iterator->data);
 		printf(")\n");
-		printf("empty? %d\n\n", is_empty(stack));
+		printf("empty? %d\n\n", is_empty(datas));
 	}
 
 	data = 1;
 	for (; data < 10; data++) {
 		printf("push_front %d", data);
-		push_front(stack, data);
-		printf("\nstack = ( "); iterator = stack->first; for (; iterator != stack->last; iterator = iterator->next) printf("%d ", iterator->data);
+		push_front(datas, data);
+		printf("\ndatas = ( "); iterator = datas->first; for (; iterator != datas->last; iterator = iterator->next) printf("%d ", iterator->data);
 		printf(")\n");
-		printf("empty? %d\n\n", is_empty(stack));
+		printf("empty? %d\n\n", is_empty(datas));
 	}
 	data--;
-	printf("top %d", top(stack));
-	printf("\nstack = ( "); iterator = stack->first; for (; iterator != stack->last; iterator = iterator->next) printf("%d ", iterator->data);
+	printf("top %d", top(datas));
+	printf("\ndatas = ( "); iterator = datas->first; for (; iterator != datas->last; iterator = iterator->next) printf("%d ", iterator->data);
 	printf(")\n");
-	printf("empty? %d\n\n", is_empty(stack));
+	printf("empty? %d\n\n", is_empty(datas));
 	for (; 0 < data; data--) {
-		printf("pop_back %d", pop_back(stack));
-		printf("\nstack = ( "); iterator = stack->first; for (; iterator != stack->last; iterator = iterator->next) printf("%d ", iterator->data);
+		printf("pop_back %d", pop_back(datas));
+		printf("\ndatas = ( "); iterator = datas->first; for (; iterator != datas->last; iterator = iterator->next) printf("%d ", iterator->data);
 		printf(")\n");
-		printf("empty? %d\n\n", is_empty(stack));
+		printf("empty? %d\n\n", is_empty(datas));
 	}
 }
