@@ -104,6 +104,34 @@ get boolean Stack(param) is black
 int is_empty(Stack* stack) {
 	return (stack->first == stack->last);
 }
+/*
+printf all available functions
+*/
+void help() {
+	for (int i = 0; i < 30; i++) printf("*");
+	printf("\nall available struct list:\n");
+	printf("StackElement: struct stackElement\n");
+	printf("Stack: struct stack\n");
+
+	printf("\nall available functions list:\n");
+
+	printf("\nabout initialization:\n");
+	printf("init(): Stack*\n");
+
+	printf("\nabout push:\n");
+	printf("push(Stack*, STACK): void\n");
+
+	printf("\nabout pop:\n");
+	printf("pop(Stack*): STACK\n");
+
+	printf("\nabout peek:\n");
+	printf("top(Stack*): STACK\n");
+
+	printf("\nabout blank check:\n");
+	printf("is_empty(Stack*): int\n");
+	for (int i = 0; i < 30; i++) printf("*");
+	printf("\n");
+}
 
 #endif
 
@@ -175,6 +203,34 @@ get boolean Queue(param) is black
 */
 int is_empty(Queue* queue) {
 	return (queue->first == queue->last);
+}
+/*
+printf all available functions
+*/
+void help() {
+	for (int i = 0; i < 30; i++) printf("*");
+	printf("\nall available struct list:\n");
+	printf("QueueElement: struct queueElement\n");
+	printf("Queue: struct queue\n");
+
+	printf("\nall available functions list:\n");
+
+	printf("\nabout initialization:\n");
+	printf("init(): Queue*\n");
+
+	printf("\nabout push:\n");
+	printf("enqueue(Queue*, QUEUE): void\n");
+
+	printf("\nabout pop:\n");
+	printf("dequeue(Queue*): QUEUE\n");
+
+	printf("\nabout peek:\n");
+	printf("bottom(Queue*): QUEUE\n");
+
+	printf("\nabout blank check:\n");
+	printf("is_empty(Queue*): int\n");
+	for (int i = 0; i < 30; i++) printf("*");
+	printf("\n");
 }
 
 #endif
@@ -275,6 +331,37 @@ get boolean Deque(param) is black
 */
 int is_empty(Deque* deque) {
 	return (deque->first == deque->last);
+}
+/*
+printf all available functions
+*/
+void help() {
+	for (int i = 0; i < 30; i++) printf("*");
+	printf("\nall available struct list:\n");
+	printf("DequeElement: struct dequeElement\n");
+	printf("Deque: struct deque\n");
+
+	printf("\nall available functions list:\n");
+
+	printf("\nabout initialization:\n");
+	printf("init(): Deque*\n");
+
+	printf("\nabout push:\n");
+	printf("push_front(Deque*, DEQUE): void\n");
+	printf("push_back(Deque*, DEQUE): void\n");
+
+	printf("\nabout pop:\n");
+	printf("pop_front(Deque*): DEQUE\n");
+	printf("pop_back(Deque*): DEQUE\n");
+
+	printf("\nabout peek:\n");
+	printf("top(Deque*): DEQUE\n");
+	printf("bottom(Deque*): DEQUE\n");
+
+	printf("\nabout blank check:\n");
+	printf("is_empty(Deque*): int\n");
+	for (int i = 0; i < 30; i++) printf("*");
+	printf("\n");
 }
 
 #endif

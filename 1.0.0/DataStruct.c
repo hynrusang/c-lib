@@ -6,6 +6,7 @@ main() {
 	STACK data;
 	Stack* datas = init();
 	StackElement* iterator;
+	help();
 	printf("empty? %d\n\n", is_empty(datas));
 
 	data = 1;
@@ -35,6 +36,7 @@ main() {
 	QUEUE data;
 	Queue* datas = init();
 	QueueElement* iterator;
+	help();
 	printf("empty? %d\n\n", is_empty(datas));
 
 	data = 1;
@@ -64,6 +66,7 @@ main() {
 	DEQUE data;
 	Deque* datas = init();
 	DequeElement* iterator;
+	help();
 	printf("empty? %d\n\n", is_empty(datas));
 
 	data = 1;
