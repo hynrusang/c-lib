@@ -11,6 +11,7 @@ will use Stack data structure, and if the data type is int,
 
 #define STACK int
 #include "DataStruct.h"
+
 You can write at the top of the C source.
 Author: Hynrusang
 */
