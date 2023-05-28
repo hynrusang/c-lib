@@ -1,3 +1,19 @@
+/*
+his source code is a source code that implements data structures such as Stack, Queue, Deque, and Tree in C language.
+When you use it,
+
+#define (STACK || QUEUE || DEQUE || TREE) (int || char || double || ...)
+#include "DataStruct.h href"
+
+You can create at the top of the C source file.
+For example, DataStructure.h is located in the same path as the C source file,
+will use Stack data structure, and if the data type is int,
+
+#define STACK int
+#include "DataStruct.h"
+You can write at the top of the C source.
+Author: Hynrusang
+*/
 #ifndef DATASTRUCTHEADER
 #define DATASTRUCTHEADER
 #define __dynamic_error 1
@@ -90,7 +106,7 @@ int is_empty(Stack* stack) {
 
 #endif
 
-#ifdef QUEUE
+#ifdef QUEUE // using Queue
 
 // definition of Queue
 
