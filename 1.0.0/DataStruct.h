@@ -1,5 +1,5 @@
 /*
-his source code is a source code that implements data structures such as Stack, Queue, Deque, and Tree in C language.
+this source code is a source code that implements data structures such as Stack, Queue, Deque, and Tree in C language.
 When you use it,
 
 #define (STACK || QUEUE || DEQUE || TREE) (int || char || double || ...)
