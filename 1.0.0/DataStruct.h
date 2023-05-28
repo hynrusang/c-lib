@@ -188,7 +188,7 @@ int is_empty(Queue* queue) {
 /*
 Deque Element(linked)
 */
-DequeElement{
+DequeElement {
 	DEQUE data;
 	DequeElement* before;
 	DequeElement* next;
@@ -196,7 +196,7 @@ DequeElement{
 /*
 controller(Deque Element)
 */
-Deque{
+Deque {
 	DequeElement* first;
 	DequeElement* last;
 };
