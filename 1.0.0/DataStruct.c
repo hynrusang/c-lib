@@ -1,11 +1,12 @@
 #define DEQUE int
 #include "DataStruct.h"
 main() {
+	DEQUE data;
 	Deque* datas = init();
 	DequeElement* iterator;
 	printf("empty? %d\n\n", is_empty(datas));
 
-	int data = 1;
+	data = 1;
 	for (; data < 10; data++) {
 		printf("push_back %d", data);
 		push_back(datas, data);
