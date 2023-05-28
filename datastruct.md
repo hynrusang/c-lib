@@ -1,6 +1,7 @@
 # ![C icon](https://github.com/hynrusang/c-lib/blob/main/resource/logo.png) DataStruct
 - [이전으로](https://github.com/hynrusang/c-lib/tree/main)
 - [소스코드](https://github.com/hynrusang/c-lib/blob/main/1.0.0/DataStruct.h)
+- [예시코드](https://github.com/hynrusang/c-lib/blob/main/1.0.0/DataStruct.c)
 ---
 - **이 문서는 developer 버전인 DataStruct 1.0.0을 다룹니다.**  
 - **현재 release 버전은 DataStruct 1.0.0입니다.**  
@@ -31,5 +32,17 @@
 > create enqueue(Queue*, QUEUE): void;  
 > create dequeue(Queue*): QUEUE;  
 > create bottom(Queue*): QUEUE;  
-> create is_empty(Queue*): QUEUE;  
+> create is_empty(Queue*): int;  
+>  
+> @defined DEQUE Type:  
+> create DequeElement: struct dequeElement;  
+> create Deque: struct deque;  
+> create init(): Deque*;  
+> create push_front(Deque*, DEQUE): void;  
+> create push_back(Deque*, DEQUE): void;  
+> create pop_front(Deque*): DEQUE;  
+> create pop_back(Deque*): DEQUE;  
+> create top(Deque*): DEQUE;  
+> create bottom(Deque*): DEQUE;  
+> create is_empty(Deque*): int;  
 ---
