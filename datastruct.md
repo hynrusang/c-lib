@@ -11,8 +11,22 @@
   
 ## 요소
 ### Stack, StackElement  
+> **Stack**과 **StackElement**는 각각 **Stack** 자료구조의 **Controller**, **Node**를 담당하는 **Struct**입니다.  
+> **#include "DataStruct.h"** 이전에 **#define STACK (int || double || char || ...)** 을 선언하면,  
+> 자동으로 사용가능한 **Stack** 관련 **Utility**등이 정의됩니다.  
+> **#define STACK (int || double || char || ...)** 을 선언하면, 사용가능하게 되는 **Stack** 관련 **Utility**는 다음과 같습니다.
+---
 ### Queue, QueueElement  
+> **Queue**과 **QueueElement**는 각각 **Queue** 자료구조의 **Controller**, **Node**를 담당하는 **Struct**입니다.  
+> **#include "DataStruct.h"** 이전에 **#define QUEUE (int || double || char || ...)** 을 선언하면,  
+> 자동으로 사용가능한 **Queue** 관련 **Utility**등이 정의됩니다.  
+> **#define QUEUE (int || double || char || ...)** 을 선언하면, 사용가능하게 되는 **Queue** 관련 **Utility**는 다음과 같습니다.
+---
 ### Deque, DequeElement
+> **Deque**과 **DequeElement**는 각각 **Deque** 자료구조의 **Controller**, **Node**를 담당하는 **Struct**입니다.  
+> **#include "DataStruct.h"** 이전에 **#define DEQUE (int || double || char || ...)** 을 선언하면,  
+> 자동으로 사용가능한 **Deque** 관련 **Utility**등이 정의됩니다.  
+> **#define DEQUE (int || double || char || ...)** 을 선언하면, 사용가능하게 되는 **Deque** 관련 **Utility**는 다음과 같습니다.
 ---
 ## 업데이트 내역
 > 1.0.0  
