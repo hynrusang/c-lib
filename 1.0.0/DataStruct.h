@@ -1,71 +1,165 @@
 #ifndef DATASTRUCTHEADER
 #define DATASTRUCTHEADER
+#define __dynamic_error 1
+#define __data_struct_is_empty 2
 #include <stdio.h>
 #include <stdlib.h>
-#define useType(Type) typedef Type element
 
-#ifdef STACK
-typedef struct stack {
+/*
+throw Error with reason
+*/
+void _throw(int code) {
+	switch (code) {
+	case __dynamic_error:
+		printf("\nDynamic memory allocation failed (may be due to low memory)\n");
+		exit(code);
+	case __data_struct_is_empty:
+		printf("\nThis DataStructure is already blank.\n");
+		exit(code);
+	}
+}
+
+#ifdef STACK // using Stack
+
+// definition of Stack
+
+#define StackElement struct stackElement
+#define Stack struct stack
+/*
+Stack Element(linked)
+*/
+StackElement {
 	STACK data;
-	struct stack* before;
-	struct stack* next;
-}Stack;
-Stack* init() {
-	Stack* temp = (Stack*)malloc(sizeof(Stack));
-	if (temp == NULL) {
-		printf("Dynamic memory allocation failed (probably due to low memory)");
-		exit(1);
-	} else {
-		temp->before = NULL;
-		temp->data = NULL;
-		temp->next = NULL;
-	}
-	return temp;
+	StackElement* before;
+	StackElement* next;
 };
-Stack* push(Stack* stack, STACK data) {
-	Stack* __iterator = stack;
-	for (; __iterator->next != NULL; __iterator = __iterator->next);
-	__iterator->data = data;
-	__iterator->next = init();
-	__iterator->next->before = __iterator;
+/*
+controller(Stack Element)
+*/
+Stack {
+	StackElement* first;
+	StackElement* last;
+};
+
+// Stack util
+
+/*
+return init controller(Stack Element)
+*/
+Stack* init() {
+	Stack* temp = malloc(sizeof(Stack));
+	if (temp == NULL) _throw(__dynamic_error);
+	temp->first = malloc(sizeof(StackElement));
+	temp->last = temp->first;
+	return temp;
 }
-STACK pop(Stack* stack) {
-	Stack* __iterator = stack;
-	for (; __iterator->next != NULL; __iterator = __iterator->next);
-	if (__iterator->before == NULL) {
-		printf("This stack is already empty.");
-		return 0;
-	} else {
-		STACK __MEMORY = __iterator->before->data;
-		__iterator->before->next = NULL;
-		free(__iterator);
-		return __MEMORY;
+/*
+push data(type is STACK) to Stack(param)
+*/
+void push(Stack* stack, STACK data) {
+	stack->last->next = malloc(sizeof(StackElement));
+	if (stack->last->next == NULL) _throw(__dynamic_error);
+	else {
+		stack->last->data = data;
+		stack->last->next->before = stack->last;
 	}
+	stack->last = stack->last->next;
 }
+/*
+get Stack(param)'s last data and remove Stack(param)'s last data
+*/
+STACK pop(Stack* stack) {
+	if (stack->first == stack->last) _throw(__data_struct_is_empty);
+	stack->last = stack->last->before;
+	free(stack->last->next);
+	return stack->last->data;
+}
+/*
+get Stack(param)'s last data
+*/
 STACK top(Stack* stack) {
-	Stack* __iterator = stack;
-	for (; __iterator->next != NULL; __iterator = __iterator->next);
-	if (__iterator->before == NULL) {
-		printf("This stack is already empty.");
-		return 0;
-	} else return __iterator->before->data;
+	if (stack->first == stack->last) _throw(__data_struct_is_empty);
+	return stack->last->before->data;
 }
-int isEmpty(Stack* stack) {
-	return (stack->next == NULL);
+/*
+get boolean Stack(param) is black
+*/
+int is_empty(Stack* stack) {
+	return (stack->first == stack->last);
 }
-size_t size(Stack* stack) {
-	Stack* iterator = stack; size_t __size = 0;
-	for (; iterator->next != NULL; iterator = iterator->next) __size++;
-	return __size;
-}
+
 #endif
 
 #ifdef QUEUE
-typedef struct queue {
+
+// definition of Queue
+
+#define QueueElement struct queueElement
+#define Queue struct queue
+/*
+Queue Element(linked)
+*/
+QueueElement {
 	QUEUE data;
-	Queue* before;
-	Queue* next;
-}Queue;
+	QueueElement* before;
+	QueueElement* next;
+};
+/*
+controller(Queue Element)
+*/
+Queue {
+	QueueElement* first;
+	QueueElement* last;
+};
+
+// Queue util
+
+/*
+return init controller(Queue Element)
+*/
+Queue* init() {
+	Queue* temp = malloc(sizeof(Queue));
+	if (temp == NULL) _throw(__dynamic_error);
+	temp->first = malloc(sizeof(QueueElement));
+	temp->last = temp->first;
+	return temp;
+}
+/*
+push data(type is QUEUE) to Queue(param)
+*/
+void enqueue(Queue* queue, QUEUE data) {
+	queue->last->next = malloc(sizeof(QueueElement));
+	if (queue->last->next == NULL) _throw(__dynamic_error);
+	else {
+		queue->last->data = data;
+		queue->last->next->before = queue->last;
+	}
+	queue->last = queue->last->next;
+}
+/*
+get Queue(param)'s first data and remove Queue(param)'s last data
+*/
+QUEUE dequeue(Queue* queue) {
+	if (queue->first == queue->last) _throw(__data_struct_is_empty);
+	QUEUE temp = queue->first->data;
+	queue->first = queue->first->next;
+	free(queue->first->before);
+	return temp;
+}
+/*
+get Queue(param)'s last data
+*/
+QUEUE bottom(Queue* queue) {
+	if (queue->first == queue->last) _throw(__data_struct_is_empty);
+	return queue->first->data;
+}
+/*
+get boolean Queue(param) is black
+*/
+int is_empty(Queue* queue) {
+	return (queue->first == queue->last);
+}
+
 #endif
 
 #endif
