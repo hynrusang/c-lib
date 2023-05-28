@@ -3,8 +3,9 @@
 main() {
 	Deque* datas = init();
 	DequeElement* iterator;
-	int data = 1;
 	printf("empty? %d\n\n", is_empty(datas));
+
+	int data = 1;
 	for (; data < 10; data++) {
 		printf("push_back %d", data);
 		push_back(datas, data);
