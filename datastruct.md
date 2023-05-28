@@ -38,6 +38,7 @@
 > create pop(Stack*): STACK;  
 > create top(Stack*): STACK;  
 > create is_empty(Stack*): int;  
+> create help(): void;  
 >  
 > @defined QUEUE Type:  
 > create QueueElement: struct queueElement;  
@@ -47,6 +48,7 @@
 > create dequeue(Queue*): QUEUE;  
 > create bottom(Queue*): QUEUE;  
 > create is_empty(Queue*): int;  
+> create help(): void;  
 >  
 > @defined DEQUE Type:  
 > create DequeElement: struct dequeElement;  
@@ -59,4 +61,5 @@
 > create top(Deque*): DEQUE;  
 > create bottom(Deque*): DEQUE;  
 > create is_empty(Deque*): int;  
+> create help(): void;  
 ---
