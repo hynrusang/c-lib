@@ -46,6 +46,6 @@ Author: Hynrusang
 #define class(name) typedef struct name name; struct name
 #define f(_class_name) (*_class_name)()
 #define link(_class_type, _method) this->_method = _class_type##_##_method
-#define constructor(_class_type) _class_type* init_##_class_type() { _class_type* this = malloc(sizeof(_class_type)); if (this == NULL) exit(1);
-#define new(_class_type) init_##_class_type()
+#define constructor(_class_type, ...) _class_type* init_##_class_type(__VA_ARGS__) { _class_type* this = malloc(sizeof(_class_type)); if (this == NULL) exit(1);
+#define new(_class_type, ...) init_##_class_type(__VA_ARGS__)
 #endif
