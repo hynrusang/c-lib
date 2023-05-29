@@ -12,6 +12,7 @@ void Bank_balance(Bank* this) {
 }
 void Bank_deposit(Bank* this, int money) {
     this->money += money;
+    printf("\n%d$ has been deposited.\n", money);
 }
 constructor(Bank)
     link(Bank, balance);
