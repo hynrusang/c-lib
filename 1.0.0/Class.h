@@ -50,7 +50,7 @@ Author: Hynrusang
 // definition class's constructor, this, and so on
 
 #define constructor(_class_type, ...) _class_type* init_##_class_type(__VA_ARGS__)
-#define init macro()* this = malloc(sizeof(macro())); if (this == NULL) exit(1)
+#define def_this macro()* this = malloc(sizeof(macro())); if (this == NULL) exit(1)
 #define link(_method) this->_method = macro()##_##_method
 
 // definition new operator

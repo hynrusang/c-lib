@@ -14,7 +14,6 @@ def (balance, Bank) {
 }
 
 def (withdraw, Bank, int money) {
-#define macro() money
     if (this->money - money < 0) printf("\ncannnot withdraw %d$\n", money);
     else {
         printf("\n%d$ was withdraw\n", money);
@@ -28,7 +27,7 @@ def (deposit, Bank, int money) {
 }
 constructor (Bank, int money) {
 #define macro() Bank
-    init;
+    def_this;
     link(balance);
     link(withdraw);
     link(deposit);
