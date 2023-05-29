@@ -1,4 +1,7 @@
 #include "Class.h"
+
+// class Bank { ... } in c
+
 class (Bank) {
     int money;
     void f(balance);
@@ -15,6 +18,8 @@ constructor(Bank)
     link(Bank, deposit);
     this->money = 0;
 }
+
+// class BankExtend : Bank { ... } in c
 
 class(BankExtend) {
     int money;
