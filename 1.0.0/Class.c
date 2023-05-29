@@ -8,7 +8,7 @@ class (Bank) {
     void f(deposit);
 };
 void Bank_balance(Bank* this) {
-    printf("bank's balance: %d\n", this->money);
+    printf("\nbank's balance: %d\n", this->money);
 }
 void Bank_deposit(Bank* this, int money) {
     this->money += money;
@@ -42,20 +42,20 @@ constructor(BankExtend)
 }
 
 int main() {
-    printf("***** Bank *****\n\n");
+    printf("***** Bank *****\n");
     Bank* mybank = new (Bank);
     mybank->balance(mybank);
     mybank->deposit(mybank, 100);
     mybank->balance(mybank);
 
-    printf("\n***** BankExtend : Bank *****\n\n");
+    printf("\n***** BankExtend : Bank *****\n");
     BankExtend* newbank = new (BankExtend);
     newbank->balance(newbank);
     newbank->deposit(newbank, 100);
     newbank->balance(newbank);
-    newbank->withdraw(newbank, 50) ? printf("\nwithdraw from newbank to 50$\n\n") : printf("\ncannot withdraw 50$\n\n");
+    newbank->withdraw(newbank, 50) ? printf("\nwithdraw from newbank to 50$\n") : printf("\ncannot withdraw 50$\n");
     newbank->balance(newbank);
-    newbank->withdraw(newbank, 100) ? printf("\nwithdraw from newbank to 100$\n\n") : printf("\ncannot withdraw 100$\n\n");
+    newbank->withdraw(newbank, 100) ? printf("\nwithdraw from newbank to 100$\n") : printf("\ncannot withdraw 100$\n");
     newbank->balance(newbank);
 
     printf("\n***** all class example was ended *****\n");
