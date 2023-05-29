@@ -4,12 +4,11 @@ class (Bank) {
     void f(balance);
     void f(deposit);
 };
-void define(Bank, balance)(Bank* this) {
+void Bank_balance(Bank* this) {
     printf("bank's balance: %d\n", this->money);
 }
-void define(Bank, deposit)(Bank* this, int money) {
+void Bank_deposit(Bank* this, int money) {
     this->money += money;
-    printf("\n%d$ has been deposited.\n\n", money);
 }
 constructor(Bank)
     link(Bank, balance);
@@ -23,7 +22,7 @@ class(BankExtend) {
     void f(deposit);
     int f(withdraw);
 };
-int define(BankExtend, withdraw)(BankExtend* this, int money) {
+int BankExtend_withdraw(BankExtend* this, int money) {
     if (this->money - money < 0) return 0;
     else {
         this->money -= money;
