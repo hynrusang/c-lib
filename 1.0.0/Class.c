@@ -22,7 +22,7 @@ constructor(Bank)
 
 // class BankExtend : Bank { ... } in c
 
-class(BankExtend) {
+class (BankExtend) {
     int money;
     void f(balance);
     void f(deposit);
