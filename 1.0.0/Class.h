@@ -23,7 +23,7 @@ constructor(Bank)
     link(Bank, balance);
     link(Bank, deposit);
     this->money = 0;
-end
+}
 
 Bank: Class used
 
@@ -48,6 +48,5 @@ Author: Hynrusang
 #define define(_class_type, _method) _class_type##_##_method
 #define link(_class_type, _method) this->_method = define(_class_type, _method)
 #define constructor(_class_type) _class_type* init_##_class_type() { _class_type* this = malloc(sizeof(_class_type)); if (this == NULL) exit(1);
-#define end }
 #define new(_class_type) init_##_class_type()
 #endif

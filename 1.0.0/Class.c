@@ -14,7 +14,11 @@ constructor(Bank)
     link(Bank, balance);
     link(Bank, deposit);
     this->money = 0;
-end
+}
+
+class(BankExtend) {
+
+};
 
 int main() {
     Bank* mybank = new (Bank);
