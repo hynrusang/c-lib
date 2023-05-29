@@ -14,10 +14,11 @@ def (balance, Bank) {
 }
 
 def (withdraw, Bank, int money) {
+#define macro() money
     if (this->money - money < 0) printf("\ncannnot withdraw %d$\n", money);
     else {
         printf("\n%d$ was withdraw\n", money);
-        this->money -= money;
+        this->money -= macro();
     }
 }
 
@@ -25,10 +26,12 @@ def (deposit, Bank, int money) {
     this->money += money;
     printf("\n%d$ has been deposited.\n", money);
 }
-
-constructor(Bank, int money) {
-    this(Bank);
-    link_3(Bank, balance, withdraw, deposit);
+constructor (Bank, int money) {
+#define macro() Bank
+    init;
+    link(balance);
+    link(withdraw);
+    link(deposit);
     this->money = money;
 }
 
@@ -45,5 +48,7 @@ int main() {
     printf("\nbalance: %d$\n", mybank->balance(mybank));
     mybank->withdraw(mybank, 40);
     printf("\nbalance: %d$\n", mybank->balance(mybank));
+
+    printf("***** Bank *****\n");
     return 0;
 }
