@@ -1,30 +1,26 @@
-
+#include "Class.h"
 class (Bank) {
-    int data;
+    int money;
     method(balance);
     method(deposit);
 };
-
 void define(Bank, balance)(Bank* this) {
-    printf("ÀºÇà ÀÜ¾×: %d\n", this->data);
+    printf("bank's balance: %d\n", this->money);
 }
-
 void define(Bank, deposit)(Bank* this, int money) {
-    this->data += money;
+    this->money += money;
 }
-
 constructor(Bank)
     link(Bank, balance);
-    link(Bank, deposit);   
-    this->data = 0;
+    link(Bank, deposit);
+    this->money = 0;
 end
 
 int main() {
-    Bank* test = new (Bank);
-    call(test, balance);
-    call(test, deposit, 100);
-    call(test, balance);
-    delete (test);
-
+    Bank* mybank = new (Bank);
+    mybank->balance(mybank);
+    mybank->deposit(mybank, 100);
+    mybank->balance(mybank);
+    free(mybank);
     return 0;
 }

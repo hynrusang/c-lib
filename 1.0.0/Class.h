@@ -12,17 +12,17 @@ class (Bank) {
     int money;
     method(balance);
     method(deposit);
-}
+};
 void define(Bank, balance)(Bank* this) {
-    printf("bank's balance: %d\n", this->data);
+    printf("bank's balance: %d\n", this->money);
 }
 void define(Bank, deposit)(Bank* this, int money) {
-    this->data += money;
+    this->money += money;
 }
 constructor(Bank)
     link(Bank, balance);
     link(Bank, deposit);
-    this->data = 0;
+    this->money = 0;
 end
 
 Bank: Class used
@@ -44,10 +44,10 @@ Author: Hynrusang
 #include <stdlib.h>
 
 #define class(name) typedef struct name name; struct name
-#define new(_class_type) init_##_class_type()
-#define constructor(_class_type) _class_type* init_##_class_type() { _class_type* this = malloc(sizeof(_class_type)); if (this == NULL) exit(1);
-#define end }
 #define method(_class_name) void (*_class_name)()
 #define define(_class_type, _method) _class_type##_##_method
 #define link(_class_type, _method) this->_method = define(_class_type, _method)
+#define constructor(_class_type) _class_type* init_##_class_type() { _class_type* this = malloc(sizeof(_class_type)); if (this == NULL) exit(1);
+#define end }
+#define new(_class_type) init_##_class_type()
 #endif
