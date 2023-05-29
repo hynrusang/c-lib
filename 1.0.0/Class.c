@@ -9,6 +9,7 @@ void define(Bank, balance)(Bank* this) {
 }
 void define(Bank, deposit)(Bank* this, int money) {
     this->money += money;
+    printf("\n%d$ has been deposited.\n\n", money);
 }
 constructor(Bank)
     link(Bank, balance);
@@ -23,10 +24,8 @@ class(BankExtend) {
     int f(withdraw);
 };
 int define(BankExtend, withdraw)(BankExtend* this, int money) {
-    if (this->money - money < 0) {
-        printf("The balance is insufficient.\n");
-        exit(1);
-    } else {
+    if (this->money - money < 0) return 0;
+    else {
         this->money -= money;
         return money;
     }
@@ -39,22 +38,24 @@ constructor(BankExtend)
 }
 
 int main() {
-    printf("*****Bank*****\n\n");
+    printf("***** Bank *****\n\n");
     Bank* mybank = new (Bank);
     mybank->balance(mybank);
     mybank->deposit(mybank, 100);
     mybank->balance(mybank);
-    free(mybank);
 
-    printf("\n*****BankExtend : Bank*****\n");
+    printf("\n***** BankExtend : Bank *****\n\n");
     BankExtend* newbank = new (BankExtend);
     newbank->balance(newbank);
     newbank->deposit(newbank, 100);
     newbank->balance(newbank);
-    printf("withdraw from newbank to %d$\n", newbank->withdraw(newbank, 50));
+    newbank->withdraw(newbank, 50) ? printf("\nwithdraw from newbank to 50$\n\n") : printf("\ncannot withdraw 50$\n\n");
     newbank->balance(newbank);
-    free(newbank);
+    newbank->withdraw(newbank, 100) ? printf("\nwithdraw from newbank to 100$\n\n") : printf("\ncannot withdraw 100$\n\n");
+    newbank->balance(newbank);
 
-    printf("\n*****all class example was ended*****\n");
+    printf("\n***** all class example was ended *****\n");
+    free(mybank);
+    free(newbank);
     return 0;
 }
