@@ -10,8 +10,8 @@ Bank: Class create
 
 class (Bank) {
     int money;
-    method(balance);
-    method(deposit);
+    void f(balance);
+    void f(deposit);
 };
 void define(Bank, balance)(Bank* this) {
     printf("bank's balance: %d\n", this->money);
@@ -44,7 +44,7 @@ Author: Hynrusang
 #include <stdlib.h>
 
 #define class(name) typedef struct name name; struct name
-#define method(_class_name) void (*_class_name)()
+#define f(_class_name) (*_class_name)()
 #define define(_class_type, _method) _class_type##_##_method
 #define link(_class_type, _method) this->_method = define(_class_type, _method)
 #define constructor(_class_type) _class_type* init_##_class_type() { _class_type* this = malloc(sizeof(_class_type)); if (this == NULL) exit(1);

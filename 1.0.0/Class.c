@@ -1,14 +1,13 @@
 #include "Class.h"
 class (Bank) {
     int money;
-    method(balance);
-    method(deposit);
+    void f(balance);
+    void f(deposit);
 };
 void define(Bank, balance)(Bank* this) {
     printf("bank's balance: %d\n", this->money);
 }
 void define(Bank, deposit)(Bank* this, int money) {
-    printf("***** deposit complate!***** \n");
     this->money += money;
 }
 constructor(Bank)
@@ -19,9 +18,9 @@ constructor(Bank)
 
 class(BankExtend) {
     int money;
-    method(balance);
-    method(deposit);
-    method(withdraw);
+    void f(balance);
+    void f(deposit);
+    int f(withdraw);
 };
 int define(BankExtend, withdraw)(BankExtend* this, int money) {
     if (this->money - money < 0) {
@@ -46,10 +45,16 @@ int main() {
     mybank->deposit(mybank, 100);
     mybank->balance(mybank);
     free(mybank);
+
     printf("\n*****BankExtend : Bank*****\n");
     BankExtend* newbank = new (BankExtend);
     newbank->balance(newbank);
     newbank->deposit(newbank, 100);
     newbank->balance(newbank);
+    printf("withdraw from newbank to %d$\n", newbank->withdraw(newbank, 50));
+    newbank->balance(newbank);
+    free(newbank);
+
+    printf("\n*****all class example was ended*****\n");
     return 0;
 }
