@@ -1,6 +1,8 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdlib.h>
 #include <stdio.h>
+
+#define key
 #define classes(_class_type) typedef struct _class_type _class_type; struct _class_type
 #define f(_class_type, _method, ...) _class_type##$##_method(_class_type* this, __VA_ARGS__) 
 
@@ -43,6 +45,14 @@ int f(Bank, withdraw, int money) {
 	Bank$display(this);
 	return this->money;
 }
+constructor(Bank, int money) {
+	bind(Bank);
+	this->money = money;
+}
+destroyer(Bank) {
+	unbind;
+}
+
 int f(MinusBank, withdraw, int money) {
 	if (this->money - money < 0) {
 		printf("\n%d원이 인출되었습니다. (가산된 빛: %d원)\n", money, (int)(money * this->debt_p / 100));
@@ -55,23 +65,16 @@ int f(MinusBank, withdraw, int money) {
 	Bank$display(this);
 	return this->money;
 }
-
-constructor(Bank, int money) {
-	bind(Bank);
-	this->money = money;
-}
 constructor(MinusBank, int money, double debt_p) {
 	bind(MinusBank);
 	this->money = money;
 	this->debt_p = debt_p;
 }
-destroyer(Bank) {
-	unbind;
-}
 destroyer (MinusBank) {
 	unbind;
 }
 
+#ifdef key
 main() {
 	int testdata = 3000;
 	printf("c 객체 테스트 프로그램\n");
@@ -97,3 +100,4 @@ main() {
 	MinusBank$withdraw(myminusbank, testdata);
 	delete (MinusBank, myminusbank);
 }
+#endif
