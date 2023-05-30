@@ -15,22 +15,23 @@
 classes (Bank) {
 	int money;
 };
+classes (MinusBank) {
+	int money;
+	double debt_p;
+};
 
 int f(Bank, balance) {
 	return this->money;
 }
-
 void f(Bank, display) {
 	printf("\n현재 잔고: %d\n", Bank$balance(this));
 }
-
 int f(Bank, deposit, int money) {
 	this->money += money;
 	printf("\n%d원이 입금되었습니다.\n", money);
 	Bank$display(this);
 	return this->money;
 }
-
 int f(Bank, withdraw, int money) {
 	if (this->money - money < 0) {
 		printf("\n잔액이 모자랍니다.\n");
@@ -42,20 +43,6 @@ int f(Bank, withdraw, int money) {
 	Bank$display(this);
 	return this->money;
 }
-
-constructor(Bank, int money) {
-	bind(Bank);
-	this->money = money;
-}
-destroyer(Bank) {
-	unbind;
-}
-
-classes (MinusBank) {
-	int money;
-	double debt_p;
-};
-
 int f(MinusBank, withdraw, int money) {
 	if (this->money - money < 0) {
 		printf("\n%d원이 인출되었습니다. (가산된 빛: %d원)\n", money, (int)(money * this->debt_p / 100));
@@ -68,10 +55,18 @@ int f(MinusBank, withdraw, int money) {
 	Bank$display(this);
 	return this->money;
 }
+
+constructor(Bank, int money) {
+	bind(Bank);
+	this->money = money;
+}
 constructor(MinusBank, int money, double debt_p) {
 	bind(MinusBank);
 	this->money = money;
 	this->debt_p = debt_p;
+}
+destroyer(Bank) {
+	unbind;
 }
 destroyer (MinusBank) {
 	unbind;
