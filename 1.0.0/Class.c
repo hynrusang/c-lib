@@ -27,7 +27,7 @@ def (Bank, deposit, int money) {
 }
 
 constructor (Bank, int money) {
-#define macro() Bank
+#define bind() Bank
     def_this;
     this(balance);
     this(withdraw);
@@ -57,7 +57,7 @@ def (MinusBank, withdraw, int money) {
 }
 
 constructor(MinusBank, double money, double debtp) {
-#define macro() MinusBank
+#define bind() MinusBank
     def_this;
 
     super(Bank, balance);
