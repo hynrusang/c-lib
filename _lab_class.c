@@ -46,8 +46,34 @@ destroyer(Bank) {
 	unbind;
 }
 
+classes (MinusBank) {
+	int money;
+	double debt_p;
+};
+
+int f(MinusBank, withdraw, int money) {
+	if (this->money - money < 0) {
+		printf("\n%d원이 인출되었습니다. (가산된 빛: %d원)\n", money, (int)(money * this->debt_p / 100));
+		this->money -= money * (1 + this->debt_p / 100);
+	}
+	else {
+		printf("\n%d원이 인출되었습니다.\n", money);
+		this->money -= money;
+	}
+	return this->money;
+}
+constructor(MinusBank, int money, double debt_p) {
+	bind(MinusBank);
+	this->money = money;
+	this->debt_p = debt_p;
+}
+destroyer (MinusBank) {
+	unbind;
+}
+
 main() {
-	printf("c 객체 테스트 프로그램:\n");
+	printf("c 객체 테스트 프로그램\n");
+	printf("\n시나리오: class Bank\n");
 	Bank* mybank = new (Bank, 2000);
 
 	Bank$display(mybank);
@@ -61,4 +87,18 @@ main() {
 	Bank$display(mybank);
 
 	delete (Bank, mybank);
+	printf("\n시나리오: class MinusBank extends Bank\n");
+	MinusBank* myminusbank = new (MinusBank, 2000, 10);
+
+	Bank$display(myminusbank);
+	Bank$deposit(myminusbank, 3000);
+	Bank$display(myminusbank);
+	MinusBank$withdraw(myminusbank, 2000);
+	Bank$display(myminusbank);
+	MinusBank$withdraw(myminusbank, 2000);
+	Bank$display(myminusbank);
+	MinusBank$withdraw(myminusbank, 2000);
+	Bank$display(myminusbank);
+
+	delete (MinusBank, myminusbank);
 }
