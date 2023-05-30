@@ -14,7 +14,7 @@ def (balance, Bank) {
 }
 
 def (withdraw, Bank, int money) {
-    if (this->money - money < 0) printf("\ncannnot withdraw %d$\n", money);
+    if (this->money - money < 0) printf("\n\tcannnot withdraw %d$\n", money);
     else {
         printf("\n\t%d$ was withdraw\n", money);
         this->money -= money;
@@ -47,7 +47,7 @@ class (MinusBank) {
 
 def (withdraw, MinusBank, int money) {
     if (this->money - money < 0) {
-        printf("\n\t%d$ was withdraw (the deptp has been added %d$)\n", money, (int)(money * this->debtp / 100));
+        printf("\n\t%d$ was withdraw (the dept has been added %d$)\n", money, (int)(money * this->debtp / 100));
         this->money -= money * (1 + this->debtp / 100);
     }
     else {
@@ -68,7 +68,7 @@ constructor(MinusBank, double money, double debtp) {
 }
 
 int main() {
-    printf("***** Bank *****\n");
+    printf("*****\t    Bank\t*****\n");
     Bank* mybank = new (Bank, 20); // c++: Bank* mybank = new Bank(20);
 
     printf("\n\tbalance: %d$\n", mybank->balance(mybank));
@@ -79,10 +79,10 @@ int main() {
     mybank->withdraw(mybank, 40);
     printf("\n\tbalance: %d$\n", mybank->balance(mybank));
 
-    printf("\n***** Bank scenario end *****\n");
+    printf("\n***** Bank scenario end *****\n\n");
     free(mybank);
 
-    printf("\n***** MinusBank *****\n");
+    printf("\n\n*****\t  MinusBank\t*****\n");
     MinusBank* myminusbank = new (MinusBank, 20, 10); // c++: Bank* mybank = new Bank(20);
 
     printf("\n\tbalance: %d$\n", myminusbank->balance(myminusbank));
@@ -93,6 +93,6 @@ int main() {
     myminusbank->withdraw(myminusbank, 40);
     printf("\n\tbalance: %d$\n", myminusbank->balance(myminusbank));
 
-    printf("***** MinusBank scenario end *****\n");
+    printf("\n***** MinusBank scenario end *****\n");
     return 0;
 }
