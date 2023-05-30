@@ -55,6 +55,7 @@ def (MinusBank, withdraw, int money) {
         this->money -= money;
     }
 }
+
 constructor(MinusBank, double money, double debtp) {
 #define macro() MinusBank
     def_this;
