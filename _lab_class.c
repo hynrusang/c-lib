@@ -19,6 +19,13 @@ classes (Bank) {
 int f(Bank, balance) {
 	return this->money;
 }
+int f(Bank, deposit, int money) {
+	this->money += money;
+	return this->money;
+}
+void f(Bank, display) {
+	printf("\n현재 잔고: %d\n", Bank$balance(this));
+}
 
 constructor(Bank, int money) {
 	bind(Bank);
@@ -30,7 +37,11 @@ destroyer(Bank) {
 
 main() {
 	printf("c 객체 테스트 프로그램:\n");
-	Bank* mybank = new (Bank, 20);
-	printf("\n현재 잔고: %d\n", Bank$balance(mybank));
+	Bank* mybank = new (Bank, 2000);
+
+	Bank$display(mybank);
+	Bank$deposit(mybank, 3000);
+	printf("\n3000원이 입금되었습니다.\n");
+	Bank$display(mybank);
 	delete (Bank, mybank);
 }
