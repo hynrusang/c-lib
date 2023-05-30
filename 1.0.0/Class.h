@@ -51,7 +51,8 @@ Author: Hynrusang
 
 #define constructor(_class_type, ...) _class_type* init_##_class_type(__VA_ARGS__)
 #define def_this macro()* this = malloc(sizeof(macro())); if (this == NULL) exit(1)
-#define link(_method) this->_method = macro()##_##_method
+#define this(_method) this->_method = macro()##_##_method
+#define super(_class_type, _method) this->_method = _class_type##_##_method
 
 // definition new operator
 
