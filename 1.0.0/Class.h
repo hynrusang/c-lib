@@ -33,7 +33,7 @@ def (Bank, deposit, int money) {
 }
 
 constructor (Bank, int money) {
-#define macro() Bank
+#define bind() Bank
     def_this;
     this(balance);
     this(withdraw);
