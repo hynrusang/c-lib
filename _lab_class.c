@@ -21,6 +21,17 @@ int f(Bank, balance) {
 }
 int f(Bank, deposit, int money) {
 	this->money += money;
+	printf("\n%d원이 입금되었습니다.\n", money);
+	return this->money;
+}
+int f(Bank, withdraw, int money) {
+	if (this->money - money < 0) {
+		printf("\n잔액이 모자랍니다.\n");
+		return 0;
+	} else {
+		printf("\n%d원이 인출되었습니다.\n", money);
+		this->money -= money;
+	}
 	return this->money;
 }
 void f(Bank, display) {
@@ -41,7 +52,13 @@ main() {
 
 	Bank$display(mybank);
 	Bank$deposit(mybank, 3000);
-	printf("\n3000원이 입금되었습니다.\n");
 	Bank$display(mybank);
+	Bank$withdraw(mybank, 2000);
+	Bank$display(mybank);
+	Bank$withdraw(mybank, 2000);
+	Bank$display(mybank);
+	Bank$withdraw(mybank, 2000);
+	Bank$display(mybank);
+
 	delete (Bank, mybank);
 }
