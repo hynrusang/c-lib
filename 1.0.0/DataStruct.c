@@ -3,6 +3,7 @@
 
 #define DEQUE int
 #include "DataStruct.h"
+
 main() {
 #ifdef STACK
 
