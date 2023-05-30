@@ -1,4 +1,4 @@
-#define key_
+#define key
 #ifdef key
 
 #define DEQUE int
