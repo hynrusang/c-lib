@@ -45,7 +45,7 @@ Author: Hynrusang
 
 #define class(_class_type) typedef struct _class_type _class_type; struct _class_type
 #define f(_method) (*_method)()
-#define def(_method, _class_type, ...) void _class_type##_##_method(_class_type* this, __VA_ARGS__)
+#define def(_class_type, _method, ...) void _class_type##_##_method(_class_type* this, __VA_ARGS__)
 
 // definition class's constructor, this, and so on
 

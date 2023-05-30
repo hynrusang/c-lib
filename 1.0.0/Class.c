@@ -9,11 +9,11 @@ class (Bank) {
     void f(deposit);
 };
 
-def (balance, Bank) {
+def (Bank, balance) {
     return this->money;
 }
 
-def (withdraw, Bank, int money) {
+def (Bank, withdraw, int money) {
     if (this->money - money < 0) printf("\n\tcannnot withdraw %d$\n", money);
     else {
         printf("\n\t%d$ was withdraw\n", money);
@@ -21,7 +21,7 @@ def (withdraw, Bank, int money) {
     }
 }
 
-def (deposit, Bank, int money) {
+def (Bank, deposit, int money) {
     this->money += money;
     printf("\n\t%d$ has been deposited.\n", money);
 }
@@ -45,7 +45,7 @@ class (MinusBank) {
     void f(deposit);
 };
 
-def (withdraw, MinusBank, int money) {
+def (MinusBank, withdraw, int money) {
     if (this->money - money < 0) {
         printf("\n\t%d$ was withdraw (the dept has been added %d$)\n", money, (int)(money * this->debtp / 100));
         this->money -= money * (1 + this->debtp / 100);
