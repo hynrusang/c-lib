@@ -81,8 +81,6 @@ Author: Hynrusang
 // definition new operator
 
 #define new(_class_type, ...) init_##_class_type(__VA_ARGS__)
-
-#include <stdio.h>
-#include <stdarg.h>
 #include <stdlib.h>
+
 #endif
