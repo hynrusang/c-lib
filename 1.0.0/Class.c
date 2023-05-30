@@ -1,5 +1,6 @@
 #define key
 #ifdef key
+
 #include "Class.h"
 #include <stdio.h>
 
