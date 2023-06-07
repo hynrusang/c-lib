@@ -390,6 +390,8 @@ Deque* _Deque$init() {
 	temp->last = temp->first;
 	temp->push_front = _DEQUE$PUSH_FRONT;
 	temp->push_back = _DEQUE$PUSH_BACK;
+	temp->top = _DEQUE$TOP;
+	temp->bottom = _DEQUE$BOTTOM;
 	temp->pop_front = _DEQUE$POP_FRONT;
 	temp->pop_back = _DEQUE$POP_BACK;
 	temp->is_empty = _DEQUE$IS_EMPTY;
