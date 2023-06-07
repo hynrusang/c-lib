@@ -1,7 +1,8 @@
 #define key
 #ifdef key
 
-
+#define STACK int
+#define QUEUE int
 #define DEQUE int
 #include "DataStruct.h"
 
